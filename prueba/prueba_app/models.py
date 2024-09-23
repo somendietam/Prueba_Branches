@@ -9,8 +9,20 @@ class Cart(models.Model):
 
     def total_price(self):
         return sum(item.total_price() for item in self.items.all())
+    
 class Usuario(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=100)
     correo = models.EmailField(unique=True)
     contrasena = models.CharField(max_length=100)
+
+class Categoria(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=20)
+
+    def verCategoria(self):
+        return self.nombre
+    
+    @classmethod
+    def listarCategorias(cls):
+        return cls.objects.all()
