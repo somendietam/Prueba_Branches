@@ -4,6 +4,7 @@ from .models import *
 def index(request):
     context = {}
     return render(request, 'gravity_app/index.html', context)
+
 def ver_cart(request):
     """Muestra el carrito de compras del usuario."""
     # Supongamos que el usuario está autenticado y lo obtenemos de la sesión
